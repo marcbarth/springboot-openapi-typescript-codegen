@@ -105,7 +105,7 @@
                             <configOptions>
                                 <sourceFolder>src/gen/java/main</sourceFolder>
                             </configOptions>
-                            <output>src/main/typescript</output>
+                            <output>src/main/angular-app/src/generated/</output>
                         </configuration>
                     </execution>
                 </executions>
