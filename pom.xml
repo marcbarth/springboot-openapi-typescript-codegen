@@ -95,6 +95,7 @@
                 <version>${openapi.generator.version}</version>
                 <executions>
                     <execution>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
@@ -104,6 +105,7 @@
                             <generatorName>typescript-angular</generatorName>
                             <configOptions>
                                 <sourceFolder>src/gen/java/main</sourceFolder>
+                                <enumPropertyNaming>UPPERCASE</enumPropertyNaming>
                             </configOptions>
                             <output>src/main/angular-app/src/generated/</output>
                         </configuration>

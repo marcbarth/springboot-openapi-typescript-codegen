@@ -79,12 +79,31 @@
   },
   "components": {
     "schemas": {
+      "Mood": {
+        "type": "string",
+        "enum": [
+          "SAD",
+          "HAPPY",
+          "ANGRY",
+          "EXCITED",
+          "ENERGETIC",
+          "CRANKY",
+          "GLOOMY",
+          "CHEERFUL",
+          "GRATEFUL",
+          "AMUSED",
+          "BORED",
+          "CURIOUS"
+        ]
+      },
       "Person": {
         "required": [
           "dateOfBirth",
           "familyName",
           "firstName",
-          "id"
+          "id",
+          "mood",
+          "moodYesterday"
         ],
         "type": "object",
         "properties": {
@@ -104,6 +123,12 @@
           "dateOfBirth": {
             "type": "string",
             "format": "date-time"
+          },
+          "mood": {
+            "$ref": "#/components/schemas/Mood"
+          },
+          "moodYesterday": {
+            "$ref": "#/components/schemas/Mood"
           }
         }
       }

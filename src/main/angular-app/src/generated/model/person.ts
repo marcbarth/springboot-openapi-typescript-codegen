@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { Mood } from './mood';
 
 
 export interface Person { 
@@ -17,5 +18,7 @@ export interface Person {
     middleName?: string;
     familyName: string;
     dateOfBirth: string;
+    mood: Mood;
+    moodYesterday: Mood;
 }
 
