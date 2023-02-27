@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.1</version>
+        <version>3.0.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
@@ -16,11 +16,13 @@
 
     <properties>
         <java.version>17</java.version>
-        <kotlin.version>1.6.21</kotlin.version>
-        <springdoc.version>1.6.9</springdoc.version>
-        <openapi.generator.version>5.4.0</openapi.generator.version>
-        <swagger-spec-file.path>${project.basedir}/swagger/api-docs.json</swagger-spec-file.path>
-        <swagger-output.path>src/main/typescript</swagger-output.path>
+        <kotlin.version>1.8.0</kotlin.version>
+        <springdoc.version>1.6.14</springdoc.version>
+        <openapi.generator.version>6.4.0</openapi.generator.version>
+        <openapi-spec-folder>openapi</openapi-spec-folder>
+        <openapi-spec-file>api-docs.json</openapi-spec-file>
+        <openapi-spec-path>${project.basedir}/${openapi-spec-folder}/${openapi-spec-file}</openapi-spec-path>
+        <openapi-output-path>src/main/angular-app/src/generated/</openapi-output-path>
         <tsgen.skip>false</tsgen.skip>
     </properties>
 
@@ -40,6 +42,10 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
         <dependency>
@@ -101,13 +107,13 @@
                         </goals>
                         <configuration>
                             <skip>${tsgen.skip}</skip>
-                            <inputSpec>${project.basedir}/swagger/api-docs.json</inputSpec>
+                            <inputSpec>${openapi-spec-path}</inputSpec>
                             <generatorName>typescript-angular</generatorName>
                             <configOptions>
-                                <sourceFolder>src/gen/java/main</sourceFolder>
                                 <enumPropertyNaming>UPPERCASE</enumPropertyNaming>
+                                <sourceFolder>/</sourceFolder>
                             </configOptions>
-                            <output>src/main/angular-app/src/generated/</output>
+                            <output>${openapi-output-path}</output>
                         </configuration>
                     </execution>
                 </executions>
@@ -123,7 +129,6 @@
                 <tsgen.skip>true</tsgen.skip>
             </properties>
         </profile>
-
     </profiles>
 
 </project>

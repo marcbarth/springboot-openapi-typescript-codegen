@@ -23,7 +23,7 @@ Install Node https://nodejs.org/en/download/ and install packages:
 
 To generate the TypeScript run :
 
-    npx openapi-generator-cli generate -i ../../../swagger/api-docs.json -g typescript-angular -o ../angular-app/src/generated/ --additional-properties=enumPropertyNaming=UPPERCASE
+    npx openapi-generator-cli generate -i ../../../openapi/api-docs.json -g typescript-angular -o ../angular-app/src/generated/ --additional-properties=enumPropertyNaming=UPPERCASE
 
 or direct from url:
 

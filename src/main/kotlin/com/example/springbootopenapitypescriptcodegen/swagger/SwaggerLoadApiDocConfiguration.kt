@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate
 import java.io.File
 
 @Configuration
-class SwaggerLoadApiDocConfiguration {
+class SwaggerLoadApiDocConfiguration(private val configurationProps: OpenApiConfigurationProperties) {
 
     private val logger = LoggerFactory.getLogger(SwaggerLoadApiDocConfiguration::class.java)
 
@@ -18,12 +18,11 @@ class SwaggerLoadApiDocConfiguration {
 
     @EventListener(ApplicationReadyEvent::class)
     fun loadSwaggerDoc() {
-        val restTemplate = RestTemplate()
         try {
-            val apiDoc = restTemplate.getForObject("http://localhost:$serverport/v3/api-docs", String::class.java)
-            if (!File("swagger").exists()) File("swagger").mkdirs()
-            File("swagger/api-docs.json").writeBytes(apiDoc!!.toByteArray())
-            logger.info("saved Swagger API-Doc under /swagger/api-docs.json")
+            val apiDoc = RestTemplate().getForObject("http://localhost:$serverport/v3/api-docs", String::class.java)
+            if (!File(configurationProps.folder).exists()) File(configurationProps.folder).mkdirs()
+            File("${configurationProps.folder}/${configurationProps.file}").writeBytes(apiDoc!!.toByteArray())
+            logger.info("saved Swagger API-Doc under ${configurationProps.folder}/${configurationProps.file}")
         } catch (ex: Exception) {
             logger.warn("Swagger API-Doc could not be read!")
         }

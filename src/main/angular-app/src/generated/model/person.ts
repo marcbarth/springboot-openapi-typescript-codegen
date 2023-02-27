@@ -21,4 +21,7 @@ export interface Person {
     mood: Mood;
     moodYesterday: Mood;
 }
+export namespace Person {
+}
+
 

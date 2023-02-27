@@ -10,4 +10,5 @@ index.ts
 model/models.ts
 model/mood.ts
 model/person.ts
+param.ts
 variables.ts
