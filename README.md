@@ -6,7 +6,7 @@ https://openapi-generator.tech/
 https://openapi-generator.tech/docs/usage/
 https://openapi-generator.tech/docs/generators/typescript-angular/
 https://openapi-generator.tech/docs/configuration/
-
+https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin
 ### 1 TS Codegen with Maven Plugin
 https://openapi-generator.tech/docs/plugins/
 
