@@ -13,7 +13,7 @@ import { Mood } from './mood';
 import { Gender } from './gender';
 
 
-export interface Person {
+export interface PersonGender {
     id: number;
     firstName: string;
     middleName?: string;
@@ -23,7 +23,7 @@ export interface Person {
     moodYesterday: Mood;
     gender: Gender;
 }
-export namespace Person {
+export namespace PersonGender {
 }
 
 

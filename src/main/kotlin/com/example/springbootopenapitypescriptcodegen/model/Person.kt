@@ -3,7 +3,9 @@ package com.example.springbootopenapitypescriptcodegen.model
 import io.swagger.v3.oas.annotations.media.Schema
 import java.util.*
 
-class Person(
+
+@Schema(name="Person")
+class Person<T : Gender>(
     val id: Int,
     val firstName: String,
     val middleName: String? = null,
@@ -12,5 +14,7 @@ class Person(
     @Schema(enumAsRef = true)
     val mood: Mood,
     @Schema(enumAsRef = true)
-    val moodYesterday: Mood
-)
+    val moodYesterday: Mood,
+    @Schema(anyOf = [Masculine::class, Feminine::class])
+    val gender: T
+    )

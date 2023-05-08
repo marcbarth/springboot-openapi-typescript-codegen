@@ -9,21 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Mood } from './mood';
-import { Gender } from './gender';
+import { Masculine } from './masculine';
+import { Feminine } from './feminine';
 
 
-export interface Person {
-    id: number;
-    firstName: string;
-    middleName?: string;
-    familyName: string;
-    dateOfBirth: string;
-    mood: Mood;
-    moodYesterday: Mood;
-    gender: Gender;
+export interface Gender {
+    type: string;
 }
-export namespace Person {
-}
-
 
