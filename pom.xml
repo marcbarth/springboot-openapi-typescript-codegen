@@ -17,7 +17,6 @@
         <java.version>21</java.version>
         <kotlin.version>1.9.23</kotlin.version>
         <springdoc.version>2.4.0</springdoc.version>
-        <citrus.version>3.4.0</citrus.version>
         <openapi.generator.version>7.4.0</openapi.generator.version>
         <openapi-spec-folder>openapi</openapi-spec-folder>
         <openapi-spec-file>api-docs.json</openapi-spec-file>

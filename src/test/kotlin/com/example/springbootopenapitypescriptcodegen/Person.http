@@ -12,8 +12,8 @@ Content-Type: application/json
 
 {
   "id": null,
-  "firstName": "content",
-  "familyName": "sadfsdf"
+  "firstName": "Peter",
+  "familyName": "Parker"
 }
 
 ### Change Person
@@ -22,8 +22,8 @@ Content-Type: application/json
 
 {
   "id": 1,
-  "firstName": "blabla",
-  "familyName": "foo"
+  "firstName": "Peter",
+  "familyName": "Parker"
 }
 
 ### Delete Person
