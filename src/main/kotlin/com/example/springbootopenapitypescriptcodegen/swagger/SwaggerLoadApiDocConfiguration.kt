@@ -1,5 +1,7 @@
 package com.example.springbootopenapitypescriptcodegen.swagger
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition
+import io.swagger.v3.oas.annotations.servers.Server
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.context.event.ApplicationReadyEvent

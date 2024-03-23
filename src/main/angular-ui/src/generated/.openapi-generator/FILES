@@ -1,0 +1,15 @@
+.gitignore
+.openapi-generator-ignore
+README.md
+api.module.ts
+api/api.ts
+api/personController.service.ts
+configuration.ts
+encoder.ts
+git_push.sh
+index.ts
+model/models.ts
+model/mood.ts
+model/person.ts
+param.ts
+variables.ts

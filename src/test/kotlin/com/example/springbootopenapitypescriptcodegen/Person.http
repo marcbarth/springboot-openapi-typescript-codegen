@@ -1,0 +1,31 @@
+### GET request with json body
+GET http://localhost:8080/api/person/888
+Accept: application/json
+
+### GET ALL request with json body
+GET http://localhost:8080/api/person
+Accept: application/json
+
+### Create Person
+POST http://localhost:8080/api/person
+Content-Type: application/json
+
+{
+  "id": null,
+  "firstName": "content",
+  "familyName": "sadfsdf"
+}
+
+### Change Person
+PUT http://localhost:8080/api/person
+Content-Type: application/json
+
+{
+  "id": 1,
+  "firstName": "blabla",
+  "familyName": "foo"
+}
+
+### Delete Person
+DELETE http://localhost:8080/api/person/1
+

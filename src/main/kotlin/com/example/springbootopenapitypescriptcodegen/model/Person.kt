@@ -1,20 +1,17 @@
 package com.example.springbootopenapitypescriptcodegen.model
 
 import io.swagger.v3.oas.annotations.media.Schema
+import java.time.LocalDate
 import java.util.*
 
 
-@Schema(name="Person")
-class Person<T : Gender>(
-    val id: Int,
+@Schema(name = "Person")
+data class Person(
+    val id: Long?,
     val firstName: String,
     val middleName: String? = null,
     val familyName: String,
-    val dateOfBirth: Date,
+    val dateOfBirth: LocalDate? = null,
     @Schema(enumAsRef = true)
-    val mood: Mood,
-    @Schema(enumAsRef = true)
-    val moodYesterday: Mood,
-    @Schema(anyOf = [Masculine::class, Feminine::class])
-    val gender: T
-    )
+    val mood: Mood? = null,
+)

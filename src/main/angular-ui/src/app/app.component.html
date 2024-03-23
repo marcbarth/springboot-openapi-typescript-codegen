@@ -1,0 +1,15 @@
+<h1>person test</h1>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label for="firstName">FirstName:</label>
+  <input id="firstName" type="text" formControlName="firstName">
+  <label for="firstName">FamilyName:</label>
+  <input id="familyName" type="text" formControlName="familyName">
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+<ul>
+  <li *ngFor="let person of persons">
+    id: {{person.id}}, firstname: {{ person.firstName}} <button (click)="deletePerson(person)">delete</button>
+  </li>
+</ul>

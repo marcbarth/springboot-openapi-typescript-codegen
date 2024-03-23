@@ -1,16 +1,12 @@
 package com.example.springbootopenapitypescriptcodegen.model
 
-enum class Mood {
-    SAD,
-    HAPPY,
-    ANGRY,
-    EXCITED,
-    ENERGETIC,
-    CRANKY,
-    GLOOMY,
-    CHEERFUL,
-    GRATEFUL,
-    AMUSED,
-    BORED,
-    CURIOUS;
+enum class Mood(positive: Boolean) {
+    SAD(false),
+    HAPPY(true),
+    ANGRY(false),
+    EXCITED(true),
+    ENERGETIC(true),
+    AMUSED(true),
+    BORED(false),
+    CURIOUS(false);
 }

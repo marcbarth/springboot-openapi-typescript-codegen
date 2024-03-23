@@ -5,27 +5,26 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
+        <version>3.2.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
     <artifactId>springboot-openapi-typescript-codegen</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>springboot-openapi-typescript-codegen</name>
     <description>springboot-openapi-typescript-codegen</description>
-
     <properties>
-        <java.version>17</java.version>
-        <kotlin.version>1.8.0</kotlin.version>
-        <springdoc.version>2.0.2</springdoc.version>
-        <openapi.generator.version>6.4.0</openapi.generator.version>
+        <java.version>21</java.version>
+        <kotlin.version>1.9.23</kotlin.version>
+        <springdoc.version>2.4.0</springdoc.version>
+        <citrus.version>3.4.0</citrus.version>
+        <openapi.generator.version>7.4.0</openapi.generator.version>
         <openapi-spec-folder>openapi</openapi-spec-folder>
         <openapi-spec-file>api-docs.json</openapi-spec-file>
         <openapi-spec-path>${project.basedir}/${openapi-spec-folder}/${openapi-spec-file}</openapi-spec-path>
-        <openapi-output-path>src/main/angular-app/src/generated/</openapi-output-path>
+        <openapi-output-path>src/main/angular-ui/src/generated/</openapi-output-path>
         <tsgen.skip>false</tsgen.skip>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -41,7 +40,7 @@
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <artifactId>kotlin-stdlib</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -52,8 +51,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <!-- Exclude JUnit 4 -->
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.1.1</version>
+            <scope>test</scope>
+        </dependency>
         <!-- OpenApi / Swagger -->
         <dependency>
             <groupId>org.springdoc</groupId>
@@ -65,6 +76,12 @@
             <artifactId>springdoc-openapi-starter-common</artifactId>
             <version>${springdoc.version}</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
@@ -109,6 +126,7 @@
                             <skip>${tsgen.skip}</skip>
                             <inputSpec>${openapi-spec-path}</inputSpec>
                             <generatorName>typescript-angular</generatorName>
+                            <skipValidateSpec>true</skipValidateSpec>
                             <configOptions>
                                 <enumPropertyNaming>UPPERCASE</enumPropertyNaming>
                                 <sourceFolder>/</sourceFolder>
@@ -120,7 +138,6 @@
             </plugin>
         </plugins>
     </build>
-
 
     <profiles>
         <profile>
